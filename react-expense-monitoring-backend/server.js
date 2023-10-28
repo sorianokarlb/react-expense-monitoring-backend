@@ -8,7 +8,7 @@ const port = process.env.PORT;
 
 // routes
 import userRoutes from './routes/userRoutes.js';
-
+import transRoutes from './routes/transRoutes.js';
 connectDB();
 
 const app = express();
@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser())
 app.use('/api/users', userRoutes)
+app.use('/api/trans', transRoutes)
 app.get('/', (req, res) => res.send('Server is ready'))
 
 app.use(notFound);
