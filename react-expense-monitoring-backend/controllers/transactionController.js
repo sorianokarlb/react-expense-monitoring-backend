@@ -7,12 +7,13 @@ const getAllTransaction = asyncHandler(async (req, res) => {
 });
 
 const addTransaction = asyncHandler(async (req, res) => {
-    const { transactionName, transactionType, transactionPrice } = req.body;
+    const { transactionName, transactionType, transactionPrice, addedBy } = req.body;
 
     const trans = await Transaction.create({
         transactionName,
         transactionType,
-        transactionPrice
+        transactionPrice,
+        addedBy
     });
 })
 
